@@ -1,0 +1,25 @@
+{
+  "name": "node-sample-app",
+  "version": "1.0.0",
+  "description": "A sample app to package in docker and deploy in kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "./node_modules/.bin/mocha ./test/test.js"
+  },
+  "keywords": [
+    "Docker",
+    "Kubernetes",
+    "NodeJS",
+    "DevOps"
+  ],
+  "author": "KenSingson",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^9.2.2",
+    "supertest": "^6.2.2"
+  },
+  "dependencies": {
+    "express": "4.17.3"
+  }
+}
