@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-deployment
+  namespace: my-namespace
+  labels:
+    app: nodeapp-deployment
+    created_by: KenSingson
+    environment: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapp-deployment
+      created_by: KenSingson
+      environment: test
+  template:
+    metadata:
+      labels:
+        app: nodeapp-deployment
+        created_by: KenSingson
+        environment: test
+    spec:
+      containers:
+        - name: nodeapp-deployment
+          image: kensingson/nodeapp:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
