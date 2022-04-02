@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('GIT Clone') { 
             steps {
-                git 'https://github.com/KenSingson/node-sample-app.git'
+                git branch: 'main', url: 'https://github.com/KenSingson/node-sample-app.git'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Push to docker hub') {
             steps {
-                sh 'docker push thetips4you/nodeapp_test:latest'
+                sh 'docker push kensingson/nodeapp_test:latest'
             }
         }
     }
