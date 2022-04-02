@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        version="1.0.0"
     }
 
     stages {
@@ -14,7 +15,7 @@ pipeline {
 
         stage('BUILD') {
             steps {
-                sh 'docker build -t kensingson/nodeapp_test:latest .'
+                sh 'docker build -t kensingson/nodeapp_test:$version .'
             }
         }
 
@@ -26,7 +27,7 @@ pipeline {
 
         stage('Push to docker hub') {
             steps {
-                sh 'docker push kensingson/nodeapp_test:latest'
+                sh 'docker push kensingson/nodeapp_test:$version'
             }
         }
     }
